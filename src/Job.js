@@ -17,7 +17,7 @@ export default function Job({ job }) {
 
                         </Card.Title>
 
-                        <Card.Subtitle clasName="text-muted mb-2">
+                        <Card.Subtitle className="text-muted mb-2">
                             {new Date(job.created_at).toLocaleDateString()}
                         </Card.Subtitle>
                         <Badge variant="secondary" className="mr-2">{job.type}</Badge>
