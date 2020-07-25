@@ -7,27 +7,43 @@ import { Container } from "react-bootstrap";
 import Job from "./Job";
 
 import JobsPagination from "./JobsPagination";
+import SearchForm from './SearchForm';
 
 function App() {
 
   const [params, setParams] = useState({})
   const [page, setPage] = useState(1)
 
-  const { jobs, loading, error } = useFetchJobs(params, page);
+  const { jobs, loading, error, hasNextPage } = useFetchJobs(params, page);
+
+  function handleParamChange(e) {
+
+    const param = e.target.name;
+    const value = e.target.value;
+
+    setPage(1);
+
+    setParams(prevParams => { 
+
+      return {...prevParams,[param]:value}
+    })
+  }
 
   return (
 
     <Container className="my-4">
       <h1 className="mb-4">GitHub Empregos </h1>
-      <JobsPagination page={page} setPage={setPage} hasNextPage={true} />
-      {loading && <h1>Loading...</h1>}
-      {error && <h1>error</h1>}
-        {jobs.map(job => (
+      <SearchForm className="mb-4" params={params} onParamChange={handleParamChange}/>
 
-          <Job key={job.id} job={job} />
+      {jobs.lenght > 0 && <JobsPagination page={page} setPage={setPage} hasNextPage={hasNextPage} className="mb-5"/>}
+      {loading && <h6 className="text-muted my-5 text-center">Carregando...</h6>}
+      {error && <h6 className="text-muted my-5 text-center">Oops! Ocorreu um erro, tente novamente mais tarde!</h6>}
+      {jobs.map(job => (
 
-        ))}
-        <JobsPagination page={page} setPage={setPage} hasNextPage={true} />
+        <Job key={job.id} job={job} />
+
+      ))}
+      {jobs.lenght > 0 && <JobsPagination page={page} setPage={setPage} hasNextPage={hasNextPage} />}
     </Container>
   );
 }
