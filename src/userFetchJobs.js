@@ -50,7 +50,7 @@ export default function useFetchJobs(params, page) {
             params: { markdown: true, page: page, ...params }
         }).then(res => {
 
-            dispatch({ type: ACTIONS.GET_DATA, payload: { jobs: res.data } })
+            dispatch({ type: ACTIONS.GET_DATA, payload: { jobs: res.data || "Nenhuma vaga encontrada"} })
             
         }).catch(e => {
             if (axios.isCancel(e)) return
