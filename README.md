@@ -44,5 +44,5 @@ Este é um projeto de estudo do ReactJS mas toda contribuição é bem vinda, fi
 
 Link para instalação do Git e/ou do Node caso você não tenha na sua máquina:
 
-[Node.js](https://nodejs.org/en/download/)
-[Git](https://git-scm.com/downloads)
+- [Node.js](https://nodejs.org/en/download/)
+- [Git](https://git-scm.com/downloads)
