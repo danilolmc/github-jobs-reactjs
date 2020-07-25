@@ -1,6 +1,6 @@
 # GitHub Jobs
 
-Aplicação de busca de emprego feita em ReactJS utilizando o axios para buscar os dados na api do GitHub Jobs.
+Aplicação de busca de emprego feita em ReactJS utilizando o axios para buscar os dados na api do GitHub Jobs e React Boostrap para estilização.
 
 ![](print.png)
 
