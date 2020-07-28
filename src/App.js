@@ -7,11 +7,13 @@ import { Container } from "react-bootstrap";
 import Job from "./Job";
 
 import JobsPagination from "./JobsPagination";
+
 import SearchForm from './SearchForm';
 
 function App() {
 
   const [params, setParams] = useState({})
+ 
   const [page, setPage] = useState(1)
 
   const { jobs, loading, error, hasNextPage } = useFetchJobs(params, page);
@@ -19,6 +21,7 @@ function App() {
   function handleParamChange(e) {
 
     const param = e.target.name;
+
     const value = e.target.value;
 
     setPage(1);
@@ -39,9 +42,7 @@ function App() {
       {loading && <h6 className="text-muted my-5 text-center">Carregando...</h6>}
       {error && <h6 className="text-muted my-5 text-center">Oops! Ocorreu um erro, tente novamente mais tarde!</h6>}
       {jobs.map(job => (
-
         <Job key={job.id} job={job} />
-
       ))}
       {jobs.lenght !== 0 && <JobsPagination page={page} setPage={setPage} hasNextPage={hasNextPage} />}
     </Container>
