@@ -14,7 +14,6 @@ export default function Job({ job }) {
                     <div>
                         <Card.Title>
                             {job.title} - <span className="text-muted font-weight-light">{job.company}</span>
-
                         </Card.Title>
 
                         <Card.Subtitle className="text-muted mb-2">
@@ -32,8 +31,7 @@ export default function Job({ job }) {
                 </div>
 
                 <Card.Text>
-                    <Button variant="primary" 
-                    
+                    <Button variant="primary"     
                         onClick={() => setOpen(!open)}>
                         {open ? "Esconder detalhes" : "Ver detalhes" }
                     </Button>
@@ -43,7 +41,6 @@ export default function Job({ job }) {
                         <ReactMarkdown source={job.description} />
                     </div>
                 </Collapse>
-
             </Card.Body>
         </Card>
     )
